@@ -4,11 +4,14 @@
 this script uses twitter API to generate interactions with configured accounts to generate activity from your own account.
 
 ### installation ###
+
+dormit requires only perl (oysttyer) and standard bash tools, any modern distribution should have all you need.
+
 dormit uses **oysttyer** to query twitter so you need to download and **configure it** before executing this tool.
 
 https://github.com/oysttyer/oysttyer
 
-be sure that you can access oysttyer as binary/link in your path:
+be sure that you can execute oysttyer as binary/link in your path:
 
     ln -s /opt/oysttyer-master/oysttyer.pl /usr/local/bin/oysttyer
 
