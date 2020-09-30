@@ -28,6 +28,7 @@ there's two mandatory settings you should modify:
 twitter don't want tools acting like humans and their API is focused on enterprise management.
 they limit the number of actions you can perform so don't expect this tool to be fast.
 the good news is you can run it 24/7 because oysttyer takes care of waiting when you exceed limits, and you don't have to turn it off at night to mimick human behaviour.
+
 from my tests it takes 3 hours to perform 100 interactions.
 
 
