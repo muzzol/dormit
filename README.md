@@ -27,6 +27,37 @@ there's two mandatory settings you should modify:
 * TW_ACCOUNT : you own twitter account
 * INTERACT : all accounts you'll use followers to create activity
 
+you can also create a conf file in the same directory as the script to prevent losing your conf when updating.
+the script must be named **dormit-tw.conf** and here is a sample:
+```
+# basic settings
+#################
+
+# your twitter account
+TW_ACCOUNT="nirvana"
+
+# accounts you want to interact with
+INTERACT="foofighters mudhoney soundgarden"
+
+
+# advanced settings: don't touch if you don't know what are you doing
+######################################################################
+
+# when listing this will be the maximum retrieved number of entries
+# setting it too high can give problems
+MAX_LIST="1000"
+
+# how many likes per account (picked randomnly from last 20 + this number)
+ACCOUNT_LIKES="2"
+
+# total amount of interactions. it'll be split equally between interacted accounts
+# for now just likes are supported
+MAX_INTERACTIONS="1000"
+
+
+```
+
+
 ### API limitations ###
 twitter don't want tools acting like humans and their API is focused on enterprise management.
 they limit the number of actions you can perform so don't expect this tool to be fast.
