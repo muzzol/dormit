@@ -4,15 +4,15 @@
 # this tool needs oysttyer installed and configured: https://github.com/oysttyer/oysttyer
 # it will create a data subdir on the script dir
 
-TW_ACCOUNT="metacorc"
-# INTERACT="buhosoficial bcoredisc Picap"
-INTERACT="bcoredisc Picap"
+TW_ACCOUNT=""
+INTERACT=""
 
 # when listing this will be the maximum retrieved number of entries
 # setting it too high can give problmes
 MAX_LIST="1000"
 
-ACCOUNT_LIKES="2"	# how many likes per account (picked randomnly from last 50 + this number)
+# how many likes per account (picked randomnly from last 20 + this number)
+ACCOUNT_LIKES="2"
 
 # total amount of interactions. it'll be split equally between interacted accounts
 # for now just likes are supported
@@ -21,12 +21,9 @@ MAX_INTERACTIONS="1000"
 ########################################
 # don't touch anything below this line #
 ########################################
-V="0.3"
+V="0.3.1"
 COUNT_MAX="0"
-
 TIME_START=`date +%s`
-INTERACT_NUM=`echo "$INTERACT" | tr " " "\n" | grep . | wc -l`
-let "SPLIT_INTERACTIONS=${MAX_INTERACTIONS}/${INTERACT_NUM}"
 
 mes1(){
     # simple message function
@@ -72,9 +69,13 @@ t_checks(){
     fi
 }
 
-# t_conf(){
-#     # check for twitter client conf
-# }
+t_conf(){
+    # some configuration checks
+    if [ "$INTERACT" == "" ] || [ "$TW_ACCOUNT" == "" ]; then
+	mes1 "ERROR: missing configuration. check TW_ACCOUNT and INTERACT parameters"
+	exit 1
+    fi
+}
 
 run_oysttyer(){
     PARAMS="$*"
@@ -112,7 +113,7 @@ t_info(){
 
 account_interaction(){
     ACC="$1"
-    let "GET_N_TW=10+${ACCOUNT_LIKES}"
+    let "GET_N_TW=20+${ACCOUNT_LIKES}"
     LAST_TWEETS=`run_oysttyer "/again +${GET_N_TW} $ACC" | grep "^.{again,"`
     # waitrand
     # if user don't have enough original tweets we skip it
@@ -150,6 +151,10 @@ t_gather(){
     cd "$S_DIR"
     mkdir -p "$DATA_DIR"
     cd "$DATA_DIR"
+
+    # we split activity between interacted accounts
+    INTERACT_NUM=`echo "$INTERACT" | tr " " "\n" | grep . | wc -l`
+    let "SPLIT_INTERACTIONS=${MAX_INTERACTIONS}/${INTERACT_NUM}"
 
     # first we update our current followers list
     mes1 "listing $TW_ACCOUNT followers (my take some time, aprox 1m per 500 accounts)"
@@ -212,6 +217,6 @@ t_gather(){
 }
 
 t_checks
-# t_conf
+t_conf
 t_info
 t_gather "$INTERACT"
