@@ -4,11 +4,21 @@
 # this tool needs oysttyer installed and configured: https://github.com/oysttyer/oysttyer
 # it will create a data subdir on the script dir
 
+# basic settings
+#################
+
+# your twitter account
 TW_ACCOUNT=""
+
+# accounts you want to interact with
 INTERACT=""
 
+
+# advanced settings: don't touch if you don't know what are you doing
+######################################################################
+
 # when listing this will be the maximum retrieved number of entries
-# setting it too high can give problmes
+# setting it too high can give problems
 MAX_LIST="1000"
 
 # how many likes per account (picked randomnly from last 20 + this number)
@@ -18,12 +28,21 @@ ACCOUNT_LIKES="2"
 # for now just likes are supported
 MAX_INTERACTIONS="1000"
 
+
 ########################################
 # don't touch anything below this line #
 ########################################
 V="0.3.2"
 COUNT_MAX="0"
+
 TIME_START=`date +%s`
+S_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DATA_DIR="${S_DIR}/dormit_data"
+cd "$S_DIR"
+# check for file conf "
+if [ -e "dormit-tw.conf" ]; then
+    source dormit-tw.conf
+fi
 
 mes1(){
     # simple message function
@@ -45,13 +64,11 @@ end_runtime(){
     exit 0
 }
 
-mes1 "$0 - Ver: $V"
 
-S_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-DATA_DIR="${S_DIR}/dormit_data"
-
-# wait a random number of time between 1.000 and 4.000 seconds "
 waitrand(){
+    # wait a random number of time between 1.000 and 4.000 seconds "
+    # we don't really need this as oysttyer takes care of waiting
+    # I leave it here just in case I need it in the future
     RANDSECS=`shuf -i 1000-4000 -n 1`
     RSMILI="${RANDSECS:0:1}.${RANDSECS:1}"
     mes1 "	waiting $RSMILI seconds"
@@ -215,6 +232,8 @@ t_gather(){
 	# echo "DEBUG: IN [$IN]" && read a
     done
 }
+
+mes1 "$0 - Ver: $V"
 
 t_checks
 t_conf
