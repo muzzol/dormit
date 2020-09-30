@@ -5,7 +5,7 @@ this script uses twitter API to generate interactions with configured accounts t
 
 ### installation ###
 
-dormit requires only perl (oysttyer) and standard bash tools, any modern distribution should have all you need.
+dormit requires only perl (oysttyer) and standard bash tools, any modern linux distribution should have all you need.
 
 dormit uses **oysttyer** to query twitter so you need to download and **configure it** before executing this tool.
 
