@@ -14,6 +14,10 @@ be sure that you can access oysttyer as binary/link in your path:
 
 then just download the script and make it executable
 
+    wget https://raw.githubusercontent.com/muzzol/dormit/master/dormit-tw.sh
+    chmod +x dormit-tw.sh
+
+
 ## configuration ##
 edit the first lines of script to customize your session.
 there's two mandatory settings you should modify:
