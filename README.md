@@ -31,6 +31,11 @@ the good news is you can run it 24/7 because oysttyer takes care of waiting when
 
 from my tests it takes 3 hours to perform 100 interactions.
 
+### support ###
+
+this tool is completely unsupported. use it at your own risk!
+
+
 
 ### what's with the name? ###
 * Dormit is the catalan word for Asleep (http://trdkk.com/iusn)
