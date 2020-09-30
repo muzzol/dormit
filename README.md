@@ -31,11 +31,16 @@ the good news is you can run it 24/7 because oysttyer takes care of waiting when
 
 from my tests it takes 3 hours to perform 100 interactions.
 
-### support ###
+### support and community ###
 
 this tool is completely unsupported. use it at your own risk!
+* https://t.me/dormit_xat - telegram discussion group
+* https://www.patreon.com/mussol - Patreon so I can continue working on this tool
 
 
+### credits ###
+* https://github.com/oysttyer/oysttyer Twitter client
+* https://github.com/alexal1/Insomniac Instagram bot that heavely inspired the creation of this tool
 
 ### what's with the name? ###
 * Dormit is the catalan word for Asleep (http://trdkk.com/iusn)
