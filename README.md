@@ -28,7 +28,7 @@ there's two mandatory settings you should modify:
 * INTERACT : all accounts you'll use followers to create activity
 
 you can also create a conf file to prevent losing your conf when updating.
-the script must be named **dormit-tw.conf** and must be in the same directory as the script.
+the file must be named **dormit-tw.conf** and must be in the same directory as the script.
 
 here is a sample:
 ```
