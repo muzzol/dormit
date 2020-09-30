@@ -34,10 +34,10 @@ the script must be named **dormit-tw.conf** and here is a sample:
 #################
 
 # your twitter account
-TW_ACCOUNT="nirvana"
+TW_ACCOUNT="metacorc"
 
 # accounts you want to interact with
-INTERACT="foofighters mudhoney soundgarden"
+INTERACT="nirvana foofighters mudhoney soundgarden"
 
 
 # advanced settings: don't touch if you don't know what are you doing
