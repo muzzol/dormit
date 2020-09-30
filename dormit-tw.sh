@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# àngel "mussol" bosch - muzzol@metacorc.com
+# àngel "mussol" bosch - muzzol@gmail.com
 # this tool needs oysttyer installed and configured: https://github.com/oysttyer/oysttyer
 # it will create a data subdir on the script dir
 
@@ -21,7 +21,7 @@ MAX_INTERACTIONS="1000"
 ########################################
 # don't touch anything below this line #
 ########################################
-V="0.3.1"
+V="0.3.2"
 COUNT_MAX="0"
 TIME_START=`date +%s`
 
@@ -220,3 +220,6 @@ t_checks
 t_conf
 t_info
 t_gather "$INTERACT"
+
+# we should never reach this exit
+exit 0
