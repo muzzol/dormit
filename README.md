@@ -27,8 +27,10 @@ there's two mandatory settings you should modify:
 * TW_ACCOUNT : you own twitter account
 * INTERACT : all accounts you'll use followers to create activity
 
-you can also create a conf file in the same directory as the script to prevent losing your conf when updating.
-the script must be named **dormit-tw.conf** and here is a sample:
+you can also create a conf file to prevent losing your conf when updating.
+the script must be named **dormit-tw.conf** and must be in the same directory as the script.
+
+here is a sample:
 ```
 # basic settings
 #################
