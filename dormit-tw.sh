@@ -188,6 +188,7 @@ t_gather(){
     # then we gather info for all interaction accounts and parse them
     for i in $I_ACCOUNTS ; do
 	export COUNT_SPLIT="0"
+	export COUNT_SKIPPED="0"
 	mes2 "gathering data from ${i}: "
 	I_PROFILE=`run_oysttyer "/whois ${i}"`
 	IN=`echo "$I_PROFILE" | grep '(f:' | cut -d"(" -f2 | cut -d")" -f1`
@@ -216,7 +217,8 @@ t_gather(){
 	    # checking if already interacted
 	    echo "$INTERACTED" | grep -q "^${c} - "
 	    if [ "$?" == "0" ]; then
-		mes1 "	skip $c: already interacted"
+		export COUNT_SKIPPED=$((COUNT_SKIPPED+1))
+		mes1 "	skip [$COUNT_SKIPPED/$SPLIT_INTERACTIONS] $c: already interacted"
 		continue
 	    fi
 	    mes1 "$c (follower of $i) - interacting"
